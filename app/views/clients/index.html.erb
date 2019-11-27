@@ -1,0 +1,20 @@
+<h1>HOTEL</h1>
+<table border="1">
+  <tr>
+    <th>Iм'я</th>
+    <th>Дата народження</th>
+    <th>Стать</th>
+    <th>Адреса</th>
+    <th>Номер телефону</th>
+  </tr>
+  <% Client.all.each do |client| %>
+    <tr>
+      <td><%= client.name %></td>
+      <td><%= client.birthday.strftime("%m/%d/%Y") %></td>
+      <td><%= client.gender %></td>
+      <td><%= client.address %></td>
+      <td><%= client.phone_number %></td>
+    </tr>
+  <% end %>
+
+</table>

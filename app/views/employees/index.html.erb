@@ -1,0 +1,22 @@
+<h1>HOTEL</h1>
+<table border="1">
+  <tr>
+    <th>Iм'я</th>
+    <th>Позицiя</th>
+    <th>Стать</th>
+    <th>Номер телефону</th>
+    <th>Дата народження</th>
+    <th>Зарплата</th>
+  </tr>
+  <% Employee.all.each do |employee| %>
+    <tr>
+      <td><%= employee.name %></td>
+      <td><%= employee.position %></td>
+      <td><%= employee.gender %></td>
+      <td><%= employee.phone_number %></td>
+      <td><%= employee.birthday.strftime("%m/%d/%Y") %></td>
+      <td><%= employee.salary %></td>
+    </tr>
+  <% end %>
+
+</table>

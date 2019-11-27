@@ -1,0 +1,20 @@
+<h1>HOTEL</h1>
+<table border="1">
+  <tr>
+    <th>Номер</th>
+    <th>Клієнт</th>
+    <th>Дата</th>
+    <th>Тривалість</th>
+    <th>Вартість</th>
+  </tr>
+  <% Order.all.each do |order| %>
+    <tr>
+      <td><%= order.room.id %></td>
+      <td><%= order.client.name  %></td>
+      <td><%= order.date %></td>
+      <td><%= order.during %></td>
+      <td><%= order.room.price %></td>
+    </tr>
+  <% end %>
+
+</table>

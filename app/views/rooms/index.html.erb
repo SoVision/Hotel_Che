@@ -1,0 +1,20 @@
+<h1>HOTEL</h1>
+<table border="1">
+  <tr>
+    <th>Номер</th>
+    <th>Тип</th>
+    <th>К-сть місць</th>
+    <th>Ціна</th>
+    <th>Відповідальний</th>
+  </tr>
+  <% Room.all.each do |room| %>
+    <tr>
+      <td><%= room.id %></td>
+      <td><%= room.typ  %></td>
+      <td><%= room.places %></td>
+      <td><%= room.price %></td>
+      <td><%= room.employee.name %></td>
+    </tr>
+  <% end %>
+
+</table>
