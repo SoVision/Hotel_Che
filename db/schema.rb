@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_181744) do
+ActiveRecord::Schema.define(version: 2019_11_30_104431) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_181744) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "room_id"
-    t.integer "client_id"
+    t.bigint "room_id"
+    t.bigint "client_id"
     t.date "date"
     t.integer "during"
     t.datetime "created_at", precision: 6, null: false
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_181744) do
     t.string "typ"
     t.string "places"
     t.string "price"
-    t.integer "employee_id"
+    t.bigint "employee_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["employee_id"], name: "index_rooms_on_employee_id"
