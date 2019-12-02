@@ -8,7 +8,7 @@ class Meowmeow < ActiveRecord::Migration[6.0]
       t.integer :during
       t.timestamps
     end
-    drop_table :employees
+    #drop_table :employees
     create_table :employees do |t|
       t.string :name
       t.string :position

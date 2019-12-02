@@ -1,6 +1,6 @@
 class Mm < ActiveRecord::Migration[6.0]
   def change
-    drop_table :clients
+    #drop_table :clients
     create_table :clients do |t|
       t.string :name
       t.datetime :birthday
