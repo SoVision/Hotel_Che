@@ -1,0 +1,37 @@
+<h2>Додати запис</h2>
+<br>
+
+<% if @room.errors.any? %>
+  <% @room.errors.messages.each do |msg| %>
+    <div class="allert alert-danger"><%= msg.last.last.html_safe %></div>
+  <% end %>
+<% end %>
+<br>
+
+<%= form_for :room, url: rooms_path do |f| %>
+
+
+  <p>
+    Тип<br>
+    <%= f.text_field :typ, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    К-сть місць<br>
+    <%= f.text_field :places, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Ціна<br>
+    <%= f.text_field :price, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Відповідальний<br>
+    <%= f.collection_select :employee_id, Employee.order(:name), :id, :name, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    <%= f.submit("Зберегти",{:class => 'btn btn-success '}) %>
+  </p>
+<%end %>

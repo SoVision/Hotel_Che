@@ -1,0 +1,41 @@
+<h2>Додати запис</h2>
+<br>
+
+<% if @client.errors.any? %>
+  <% @client.errors.messages.each do |msg| %>
+    <div class="allert alert-danger"><%= msg.last.last.html_safe %></div>
+  <% end %>
+<% end %>
+<br>
+
+<%= form_for :client, url: clients_path do |f| %>
+
+  <p>
+    Iм'я<br>
+    <%= f.text_field :name, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Дата народження<br>
+    <%= f.date_field :birthday, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Стать<br>
+    <%= f.text_field :gender, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Адреса<br>
+    <%= f.text_field :address, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Номер телефону<br>
+    <%= f.text_field :phone_number, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    <%= f.submit("Зберегти",{:class => 'btn btn-success '}) %>
+  </p>
+<%end %>

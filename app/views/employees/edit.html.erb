@@ -1,0 +1,47 @@
+<h2>Додати запис</h2>
+<br>
+
+<% if @employee.errors.any? %>
+  <% @employee.errors.messages.each do |msg| %>
+    <div class="allert alert-danger"><%= msg.last.last.html_safe %></div>
+  <% end %>
+<% end %>
+<br>
+
+<%= form_for :employee, url: employee_path(@employee), method: :patch do |f| %>
+
+  <p>
+    Iм'я<br>
+    <%= f.text_field :name, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Позицiя<br>
+    <%= f.text_field :position, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Стать<br>
+    <%= f.text_field :gender, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Номер телефону<br>
+    <%= f.text_field :phone_number, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    Дата народження<br>
+    <%= f.date_field :birthday, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    </th>
+  <th>Зарплата<br>
+    <%= f.text_field :salary, {:class => 'form-control'} %>
+  </p>
+
+  <p>
+    <%= f.submit("Зберегти",{:class => 'btn btn-success '}) %>
+  </p>
+<%end %>

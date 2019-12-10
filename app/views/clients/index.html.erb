@@ -5,6 +5,7 @@
     <th>Стать</th>
     <th>Адреса</th>
     <th>Номер телефону</th>
+    <th><%= link_to "Додати запис", new_client_path, :class =>'btn btn-success btn-sm'%></th>
   </tr>
   <% Client.all.each do |client| %>
     <tr>
@@ -13,6 +14,8 @@
       <td><%= client.gender %></td>
       <td><%= client.address %></td>
       <td><%= client.phone_number %></td>
+      <td width = "200px"><%= link_to "Редагувати", edit_client_path(client.id), :class =>'btn btn-warning btn-sm'%>
+        <%= link_to "Видалити", client_path(client.id), method: :delete, data:{confirm: "Видалити запис?"}, :class =>'btn btn-danger btn-sm'%></td>
     </tr>
   <% end %>
 

@@ -20,8 +20,14 @@
       <a class="py-2 d-none d-md-inline-block" href="/clients">Клієнти</a>
       <a class="py-2 d-none d-md-inline-block" href="/rooms">Номери</a>
       <a class="py-2 d-none d-md-inline-block" href="/orders">Замовлення</a>
+      <% if signed_in? %>
+        <span class="p-2 text-light">Ви увійшли як: <%= current_user.email %></span>
+        <%= button_to 'Вийти', sign_out_path, method: :delete, :class =>'btn btn-outline-primary'  %>
+      <% else %>
+        <%= link_to "Увійти", sign_in_path, :class =>'btn btn-outline-primary'%>
+      <% end %>
     </div>
   </nav>
-    <%= yield %>
+  <div class="container"><%= yield %></div>
   </body>
 </html>

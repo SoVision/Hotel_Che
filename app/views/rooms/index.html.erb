@@ -5,6 +5,7 @@
     <th>К-сть місць</th>
     <th>Ціна</th>
     <th>Відповідальний</th>
+    <th><%= link_to "Додати запис", new_room_path, :class =>'btn btn-success btn-sm'%></th>
   </tr>
   <% Room.all.each do |room| %>
     <tr>
@@ -12,7 +13,9 @@
       <td><%= room.typ  %></td>
       <td><%= room.places %></td>
       <td><%= room.price %></td>
-      <td><%= room.employee.name %></td>
+      <td><%= room.employee.try(:name) %></td>
+      <td width = "200px"><%= link_to "Редагувати", edit_room_path(room.id), :class =>'btn btn-warning btn-sm'%>
+        <%= link_to "Видалити", room_path(room.id), method: :delete, data:{confirm: "Видалити запис?"}, :class =>'btn btn-danger btn-sm'%></td>
     </tr>
   <% end %>
 

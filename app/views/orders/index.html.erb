@@ -6,14 +6,17 @@
     <th>Дата</th>
     <th>Тривалість</th>
     <th>Вартість</th>
+    <th><%= link_to "Додати запис", new_order_path, :class =>'btn btn-success btn-sm'%></th>
   </tr>
   <% Order.all.each do |order| %>
     <tr>
-      <td><%= order.room.id %></td>
-      <td><%= order.client.name  %></td>
+      <td><%= order.room.try(:id) %></td>
+      <td><%= order.client.try(:name)  %></td>
       <td><%= order.date %></td>
       <td><%= order.during %></td>
-      <td><%= order.room.price %></td>
+      <td><%= order.room.try(:price) %></td>
+      <td width = "200px"><%= link_to "Редагувати", edit_order_path(order.id), :class =>'btn btn-warning btn-sm'%>
+        <%= link_to "Видалити", order_path(order.id), method: :delete, data:{confirm: "Видалити запис?"}, :class =>'btn btn-danger btn-sm'%></td>
     </tr>
   <% end %>
 
